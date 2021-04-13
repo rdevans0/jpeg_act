@@ -1,0 +1,92 @@
+{'ae_fix35':[['Bpd,B45c']], 'ae_fixpoint':None, 'ae_jpeg':[['optsH', 'B123c']], 'augment':True, 'batchsize':128, 'dataset':'cifar10', 'dynamic_rescale':4.5, 'epoch':300.0, 'fast':False, 'gpu':0, 'learnrate':0.05, 'learnrate_decay':70.0, 'model':'vgg', 'momentum':0.9, 'old_test_method':False, 'out':'result', 'resume':'', 'seed':12345, 'snapshot_every':10, 'update_interval':100, 'variance_decay':None, 'weight_decay':0.0005, 'weight_redist':None}
+--gpu 0 --dataset cifar10 --augment --snapshot_every 10 -b 128 --learnrate 0.05 -y 70 -w 5e-4 -R 4.5 --seed 12345 --epoch 300 --model vgg --ae_fix35 Bpd,B45c --ae_jpeg optsH B123c
+
+CIFAR10/100 (train_cifar_recall_error.py)
+
+Arguments: 
+   'model'             : 'vgg',
+   'dataset'           : 'cifar10',
+   'epoch'             : 300.0,
+   'batchsize'         : 128,
+   'resume'            : '',
+   'out'               : 'result',
+
+   'ae_fix35'          : [['Bpd,B45c']],
+   'ae_fixpoint'       : None,
+   'ae_jpeg'           : [['optsH', 'B123c']],
+   'augment'           : True,
+   'dynamic_rescale'   : 4.5,
+   'fast'              : False,
+   'gpu'               : 0,
+   'learnrate'         : 0.05,
+   'learnrate_decay'   : 70.0,
+   'momentum'          : 0.9,
+   'old_test_method'   : False,
+   'seed'              : 12345,
+   'snapshot_every'    : 10,
+   'update_interval'   : 100,
+   'variance_decay'    : None,
+   'weight_decay'      : 0.0005,
+   'weight_redist'     : None,
+
+# applied error: fjpeg          	B123c (7)
+#   bits: (3, 5)
+#   shift: x32.0
+#   dqt: optsH
+#     value:
+#        8,  32,  32,  32,  32,  32,  32,  16,
+#       32,  32,  32,  32,  16,  16,  16,  16,
+#       32,  32,  32,  32,  16,  16,  16,  16,
+#       32,  32,  32,  16,  16,  16,  16,  16,
+#       32,  32,  16,  16,  16,  16,  16,  16,
+#       32,  16,  16,  16,  16,  16,  16,  16,
+#       32,  16,  16,  16,  16,  16,  16,  16,
+#       16,  16,  16,  16,  16,  16,  16,  16,
+# applied error: fix35          	Bpd,B45c (18)
+#   bits: (3, 5)
+#   shift: x32.0
+
+# Error Map
+#   block1_1-c       -> fjpeg-optsH-3.5
+#   block1_1-x       ->  -- 
+#   block1_1-d       -> fix35
+#   block1_2-c       -> fjpeg-optsH-3.5
+#   block1_2-x       ->  -- 
+#   block1_2-p       -> fix35
+#   block2_1-c       -> fjpeg-optsH-3.5
+#   block2_1-x       ->  -- 
+#   block2_1-d       -> fix35
+#   block2_2-c       -> fjpeg-optsH-3.5
+#   block2_2-x       ->  -- 
+#   block2_2-p       -> fix35
+#   block3_1-c       -> fjpeg-optsH-3.5
+#   block3_1-x       ->  -- 
+#   block3_1-d       -> fix35
+#   block3_2-c       -> fjpeg-optsH-3.5
+#   block3_2-x       ->  -- 
+#   block3_2-d       -> fix35
+#   block3_3-c       -> fjpeg-optsH-3.5
+#   block3_3-x       ->  -- 
+#   block3_3-p       -> fix35
+#   block4_1-c       -> fix35
+#   block4_1-x       ->  -- 
+#   block4_1-d       -> fix35
+#   block4_2-c       -> fix35
+#   block4_2-x       ->  -- 
+#   block4_2-d       -> fix35
+#   block4_3-c       -> fix35
+#   block4_3-x       ->  -- 
+#   block4_3-p       -> fix35
+#   block5_1-c       -> fix35
+#   block5_1-x       ->  -- 
+#   block5_1-d       -> fix35
+#   block5_2-c       -> fix35
+#   block5_2-x       ->  -- 
+#   block5_2-d       -> fix35
+#   block5_3-c       -> fix35
+#   block5_3-x       ->  -- 
+#   None             ->  -- 
+#   final1-[fr]      ->  -- 
+#   final2-[df]      ->  -- 
+epoch       main/loss   validation/main/loss  main/accuracy  validation/main/accuracy  lr          elapsed_time
+1           2.39132     1.92852               0.164902       0.219244                  0.05        60.8152       
