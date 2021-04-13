@@ -1,7 +1,11 @@
 
-## Code examples for JPEG_ACT
+# Code examples for JPEG_ACT
 
-# Setup
+These examples are intended to replicate *JPEG-ACT: Accelerating Deep Learning via Transform-based Lossy Compression*. If you use this work, please cite our paper in ISCA 2020:
+
+R. D. Evans, L. Liu and T. M. Aamodt, "JPEG-ACT: Accelerating Deep Learning via Transform-based Lossy Compression," 2020 ACM/IEEE 47th Annual International Symposium on Computer Architecture (ISCA), Valencia, Spain, 2020, pp. 860-873, doi: 10.1109/ISCA45697.2020.00075.
+
+## Setup
 JPEG-ACT is tested on Ubuntu 20.04 with Python 3, with CUDA 10.1. Other cuda versions can be used by editing requirements.txt. Note, some requirements are ordered, so must be installed as follows:
 
 
@@ -9,15 +13,13 @@ JPEG-ACT is tested on Ubuntu 20.04 with Python 3, with CUDA 10.1. Other cuda ver
 # Set up environment
 python3 -m venv jpeg_act_venv
 source jpeg_act_venv/bin/activate
-while read REQ; do 
-    pip3 install $REQ; 
-done < requirements.txt
+bash install_requirements.sh
 
 # Ensure cupy is installed correctly
 python3 -c "import cupy; a = cupy.array([0,1,2,3,4]); print(a*2);"
 ```
 
-# Running
+## Running
 
 See below for examples for replicating the fixpoint, JPEG, and JPEG_ACT results. These use a fixed seed. 
 
@@ -52,5 +54,21 @@ $TRAIN_CMD --epoch 300 --model wrn --ae_fix35 BWrd --ae_jpeg optsH BW1234cs --re
 For more information on specific arguments, use:
 ```bash
 python3 train_cifar_recall_error.py --help
+```
+
+# Bibtex Citation
+
+```bibtex
+@inproceedings{jpegact2020,
+  title = {{{JPEG}}-{{ACT}}: {{Accelerating Deep Learning}} via {{Transform}}-Based {{Lossy Compression}}},
+  shorttitle = {{{JPEG}}-{{ACT}}},
+  booktitle = {2020 {{ACM}}/{{IEEE}} 47th {{Annual International Symposium}} on {{Computer Architecture}} ({{ISCA}})},
+  author = {Evans, R. D. and Liu, L. and Aamodt, T. M.},
+  year = {2020},
+  month = may,
+  pages = {860--873},
+  doi = {10.1109/ISCA45697.2020.00075},
+  keywords = {CNN Training,Compression,GPU,Hardware Acceleration}
+}
 ```
 
